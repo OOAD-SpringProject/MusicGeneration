@@ -1,7 +1,60 @@
-<h1> This is the first HTML Page </h1>
-<div>
-  <form action="/home{% url 'login'%}" method="POST">
-    {% csrf_token %}
-    <input type="submit" value="Login" id="test_button1"/>
-  </form>
-</div>
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+    <!-- <h1> This is the first HTML Page </h1> -->
+    <link rel="stylesheet" href="{% static 'css/home.css'%}">
+    <!-- <link rel="stylesheet" href="../../static/css/home.css"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title></title>
+  </head>
+  <body>
+    <div class="grid-container">
+
+      <div class="photo1">
+        <img src="../../static/img/logo.png" class="photo1">
+      </div>
+
+      <div class="main_logo">
+        <p id="main_logo">Music Generation</p>
+      </div>
+
+      <!-- this is login button -->
+      <div class="mainbutton">
+        <form action="/home{% url 'login'%}" method="POST">
+          {% csrf_token %}
+        <input type="submit" value="Login" id="main_login"/>
+        </form>
+      </div>
+      <!--  -->
+      <div class="search">
+        <form>
+          <input type="text" name="search" placeholder="Search song..">
+        </form>
+      </div>
+    </div>
+
+    <div class="hotsong">
+      <p>Hotest songs you might like: </p>
+    </div>
+
+    <div class="songs">
+      <div class="song1">
+        Song 1
+      </div>
+      <div class="song2">
+        Song2
+      </div>
+      <div class="song3">
+        Song3
+      </div>
+      <div class="song4">
+        song4
+      </div>
+
+    </div>
+  </body>
+</html>
