@@ -38,3 +38,23 @@ class Song(object):
             return self.artist
         def setArtist(new_artist):
             self.artist = new_artist
+
+class SpotifySong(Song):
+    def __init__(self):
+        self.spotify_id = ""
+        self.info = []
+        self.extended_info = ""
+        self.alt_id = ""
+        self.popularity = 0
+
+    def getInfo():
+        return self.info
+    def setInfo(new_info):
+        self.info = new_info
+    def addInfo(new_info):
+        self.info += new_info
+
+    def getPopularity():
+        return self.popularity
+    def setPopularity(new_pop):
+        self.popularity = new_pop
