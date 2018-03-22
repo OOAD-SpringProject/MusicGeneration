@@ -58,3 +58,31 @@ class SpotifySong(Song):
         return self.popularity
     def setPopularity(new_pop):
         self.popularity = new_pop
+
+
+
+class Playlist(object):
+    def __init__(self):
+        self.name = ""
+        self.length = 0
+        self.songs = []
+        self.type = ""
+
+    def getName():
+        return self.name
+    def setName(new_name):
+        self.name = new_name
+
+    def addSong(song):
+        self.songs += song
+    def delSong(song):
+        self.songs.remove(song)
+
+    def getLength():
+        return self.length
+
+    def calculatePopularity():
+        overall = 0
+        for item in self.songs:
+            overall += item.getPopularity()
+        return overall
