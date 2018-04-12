@@ -4,9 +4,13 @@ from . import cred
 import requests
 
 
+
 # Create your views here.
 def homePage(request):
     return render(request, 'spotify/home.html')
+
+
+
 
 # Handling Spotify authorization here
 def login(request):
