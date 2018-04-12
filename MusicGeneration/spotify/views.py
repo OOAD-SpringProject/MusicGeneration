@@ -10,6 +10,11 @@ def homePage(request):
     return render(request, 'spotify/home.html')
 
 
+def mainPage(request):
+    return render(request, 'spotify/main.html')
+def testPage(request):
+    return render(request, 'spotify/test.html')
+
 
 
 # Handling Spotify authorization here
