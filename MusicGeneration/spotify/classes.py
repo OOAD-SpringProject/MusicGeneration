@@ -1,3 +1,4 @@
+from django import forms
 from . import cred
 
 class SpotifySession(object):
@@ -86,3 +87,7 @@ class Playlist(object):
         for item in self.songs:
             overall += item.getPopularity()
         return overall
+
+
+class usernameForm(forms.Form):
+    userID = forms.CharField(label='Your username', max_length=100)

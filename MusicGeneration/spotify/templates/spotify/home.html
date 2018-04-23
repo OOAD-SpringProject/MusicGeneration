@@ -1,7 +1,8 @@
 <h1> This is the first HTML Page </h1>
 <div>
   <form action="/home{% url 'login'%}" method="POST">
-    {% csrf_token %}
-    <input type="submit" value="Login" id="test_button1"/>
+    <label for="userID"> UserID: </label>
+    <input id="userID" type="text" name="userID" maxlength="100">
+    <input type="submit" value="Login" id="test_button1">
   </form>
 </div>
