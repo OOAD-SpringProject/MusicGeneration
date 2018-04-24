@@ -39,6 +39,8 @@ def login(request):
         print (response.text)
         return HttpResponse(response.content)
     '''
+    
 def callback(request):
-    print("Made it into the callback function")
-    return HttpResponse("Successfully made it back from the Spotify API")
+    #print("Made it into the callback function")
+    code =
+    return HttpResponse("Access was granted!\n Currently gathering fresh tokens...")
