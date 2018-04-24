@@ -21,3 +21,5 @@ parameters = {
     "redirect_uri": quote(REDIRECT_URI, safe=''),
     "scope": quote(SCOPE, safe='')
 }
+
+CACHE = '.spotipyoauthcache'
