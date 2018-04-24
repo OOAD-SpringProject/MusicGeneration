@@ -78,8 +78,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'ooad_db',
-        'USER': 'nmontoya',
-        'PASSWORD': 'Melo0151',
+        'USER': 'FILL YOUR INFO HERE',
+        'PASSWORD': 'FILL HERE',
         'HOST': 'localhost',
         'PORT': '5432',
     }
