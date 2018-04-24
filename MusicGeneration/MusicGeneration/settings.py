@@ -76,8 +76,12 @@ WSGI_APPLICATION = 'MusicGeneration.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'ooad_db',
+        'USER': 'nmontoya',
+        'PASSWORD': 'Melo0151',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
