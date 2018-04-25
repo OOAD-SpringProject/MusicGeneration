@@ -12,7 +12,8 @@ import requests
 
 # Create your views here.
 def homePage(request):
-    return render(request, 'spotify/home.html')
+    body_content = {'needs_to_login': True, 'custom_message': "Variable is currently true"}
+    return render(request, 'spotify/home.html', body_content)
 
 # Handling Spotify authorization here
 sp_oauth = oauth2.SpotifyOAuth( cred.CLIENT_ID, cred.CLIENT_SECRET, cred.REDIRECT_URI, scope=cred.SCOPE, cache_path=cred.CACHE )
@@ -53,4 +54,14 @@ def callback(request):
 
     if access_token and refresh_token:
         print("Successfully retrieved tokens")
-    return HttpResponse("Access was granted!\n Currently gathering fresh tokens..." )
+        sp = spotipy.Spotify(access_token)
+        results = sp.current_user()
+        name = results['display_name']
+        user_id = results['id']
+        playlists = sp.user_playlists(user_id)
+        print(playlists)
+
+        #print(sp.current_user())
+    body_content = {'needs_to_login': False, 'custom_message':'Changed the variable'}
+    return render(request, 'spotify/home.html', body_content)
+    #return HttpResponse("Hi " + name + ", thanks for granting access!" )
