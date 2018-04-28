@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'lm5cmre6^&!ydu$!n+kt7f_=$z!efch9kd8w+@-shj9p=$&s*1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True 
+DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
@@ -78,8 +78,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'ooad_db',
-        'USER': 'FILL YOUR INFO HERE',
-        'PASSWORD': 'FILL HERE',
+        'USER': 'nmontoya',
+        'PASSWORD': 'Melo0151',
         'HOST': 'localhost',
         'PORT': '5432',
     }

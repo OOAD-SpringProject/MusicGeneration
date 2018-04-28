@@ -15,7 +15,7 @@ import requests
 def homePage(request):
     #body_content = {'needs_to_login': True, 'custom_message': "Variable is currently true"}
     #return render(request, 'spotify/home.html', body_content)
-    return render(request, 'spotify/home.html')
+    return render(request, 'spotify/fall_login.html')
 
 def mainPage(request):
     return render(request, 'spotify/main.html')
@@ -35,7 +35,7 @@ def result(request):
     return render(request, 'spotify/result.html')
 
 def base(request):
-    return render(request, 'spotify/base.html')
+    return render(request, 'base.html')
 
 
 

@@ -21,20 +21,20 @@
       <div class="main_logo">
         <p id="main_logo">Music Generation</p>
       </div>
-      <!-- this is login button -->
-      <div class="mainbutton">
-        <form action="/home{% url 'login'%}" method="POST">
-          {% csrf_token %}
-        <input type="submit" value="Login" id="main_login"/>
-        </form>
-      </div>
-      <!--  -->
-      <div class="search">
-        <form>
-          <input type="text" name="search" placeholder="Search song..">
-        </form>
-      </div>
+
     </div>
+    <div class="row">
+      <div class="column left">
+
+        <div class="padding_before_greeting">
+          <p></p>
+        </div>
+
+        <div class="Greeting">
+          <p>Filler text for the base template</p>
+        </div>
+
+      </div>
     {% block content %}
 
     {% endblock content %}
