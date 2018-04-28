@@ -6,8 +6,11 @@
 
 <h1 class="fall_login_text">Please enter your username:</h1>
 
-<form action="">
-<input class="username" type="text" name="username" value="username"><br>
-<!-- <input type="submit" value="Submit"> -->
-</form>
+<div>
+  <form action="/home{% url 'login'%}" method="POST">
+    <label for="userID"> UserID: </label>
+    <input id="userID" type="text" name="userID" maxlength="100">
+    <input type="submit" value="Login" id="test_button1">
+  </form>
+</div>
 {% endblock content %}
