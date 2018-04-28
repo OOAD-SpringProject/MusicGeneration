@@ -1,9 +1,6 @@
+<!-- Simple html used to test logging in success -->
 <!--
-
-Simple html used to test logging in success
-
 <h1> This is the first HTML Page </h1>
-{% if needs_to_login %}
 <div>
   <form action="/home{% url 'login'%}" method="POST">
     <label for="userID"> UserID: </label>
@@ -11,12 +8,6 @@ Simple html used to test logging in success
     <input type="submit" value="Login" id="test_button1">
   </form>
 </div>
-{% else %}
-<div>
-  <p> Successfully logged in</p>
-</div>
-{% endif %}
-<p> {{custom_message}} </p>
 -->
 
 <!-- The correct HTML for the home page -->
