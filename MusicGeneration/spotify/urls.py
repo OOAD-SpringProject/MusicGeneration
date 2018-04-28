@@ -6,11 +6,12 @@ from . import views
 
 urlpatterns = [
     path('', csrf_exempt(views.homePage), name="homePage"),
+    path('homePage/', csrf_exempt(views.homePage), name="homePage"),
     path('login/', csrf_exempt(views.login), name="login"),
     path('api/login', csrf_exempt(views.login), name="idk"),
     path('callback/', csrf_exempt(views.callback), name="callback"),
 
-    path('homePage/', views.homePage, name="homePage"),
+
     path('testPage/', views.testPage, name="testPage"),
     path('base2/', views.base2, name="base2"),
     path('try1/', views.try1, name="try1"),
