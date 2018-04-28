@@ -1,4 +1,3 @@
 .DS_Store
 **/.DS_Store
-**/settings.py
-/spotify/__pycache/**.*
+/spotify/__pycache__/**.*
