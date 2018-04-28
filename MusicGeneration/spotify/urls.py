@@ -4,6 +4,7 @@ from django.shortcuts import render
 from . import views
 
 urlpatterns = [
+    path('', views.homePage, name="homePage"),
     path('homePage/', views.homePage, name="homePage"),
     path('testPage/', views.testPage, name="testPage"),
     path('base2/', views.base2, name="base2"),
