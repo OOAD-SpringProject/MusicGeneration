@@ -86,6 +86,4 @@ def callback(request):
         print(playlists)
 
         #print(sp.current_user())
-    body_content = {'needs_to_login': False, 'custom_message':'Changed the variable'}
-    return render(request, 'spotify/home.html', body_content)
-    #return HttpResponse("Hi " + name + ", thanks for granting access!" )
+    return render(request, 'spotify/instruction.html',)
