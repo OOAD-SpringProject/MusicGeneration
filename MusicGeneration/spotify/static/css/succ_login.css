@@ -1,0 +1,42 @@
+.left1{
+  padding: 2px;
+  color:black;
+  height: 180px;
+  width: 500px;
+  font-size: 4px;
+}
+
+
+#text_succ{
+  font-size: 30px;
+
+}
+#text_succ1{
+  padding-left: 60px;
+  font-size: 30px;
+
+}
+
+#text_succ2{
+  padding-left: 120px;
+  font-size: 30px;
+
+}
+#text_succ3{
+  padding-left: 180px;
+  font-size: 30px;
+
+}
+
+#succ_option{
+  font-size: 40px;
+}
+
+#succ_playlist{
+  padding-top: 20px;
+  font-size: 40px;
+}
+
+.succ_submit{
+  padding-top: 40px;
+}

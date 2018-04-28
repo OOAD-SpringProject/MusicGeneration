@@ -24,7 +24,7 @@ urlpatterns = [
     # Default URL for admin use.
     path('admin/', admin.site.urls),
     # URL's to display homepage
-    path('home/', include('spotify.urls')),
+    # path('home/', include('spotify.urls')),
     path('', include('spotify.urls')),
 
 ]

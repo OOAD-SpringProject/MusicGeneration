@@ -10,11 +10,32 @@
 }
 
 .column{
+  float: left;
+  /* padding-right: 30px; */
   height: 1000px;
-  width: 300px;
+  column-gap: 40px;
+  /* padding: 10px; */
+  /* width: 25%; */
+  /* background-color: DEBAB2; */
+}
+
+.left{
+  height: 1000px;
+  width: 250px;
   background-color: DEBAB2;
 }
 
+.right{
+  padding: 50px;
+  width: 1600px;
+  background-color: green;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
 .Greeting{
   padding-left: 20px;
   padding-top: 20px;
@@ -58,6 +79,26 @@
 
 }
 
+#text_instruction{
+  font-size: 60px;
+
+}
+#text_instruction1{
+  padding-left: 60px;
+  font-size: 60px;
+
+}
+
+#text_instruction2{
+  padding-left: 120px;
+  font-size: 60px;
+
+}
+#text_instruction3{
+  padding-left: 180px;
+  font-size: 60px;
+
+}
 
 .submit_button{
   padding-left: 20px;
@@ -117,39 +158,15 @@ input[type=text]:focus {
 }
 
 
-.songs{
-  display: grid;
-  grid-template-columns: repeat(16,1fr);
-  /* grid-template-rows: repeat(6,0.5fr); */
-  /* background-color: #c0c0c0; */
-
-  height: 200px;
+/* following for fall_login.html */
+.fall_login_text{
+  padding: 40px;
+  color: green;
 }
 
-.song1{
-  width: 190px;
-  height: 190px;
-  background-color: #c4a597;
-  grid-column: 3/5;
-}
-.song2{
-  width: 190px;
-  height: 190px;
-  background-color: #c4a597;
-  grid-column: 6/8;
 
-}
-.song3{
-  width: 190px;
-  height: 190px;
-  background-color: #c4a597;
-  grid-column: 9/11;
-
-}
-.song4{
-  width: 190px;
-  height: 190px;
-  background-color: #c4a597;
-  grid-column: 12/14;
-
-}
+/* following for succ_login.html */
+.left{
+  height: 1000px;
+  width: 250px;
+  background-color: DEBAB2;
