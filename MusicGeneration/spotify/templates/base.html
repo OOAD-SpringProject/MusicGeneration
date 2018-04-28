@@ -1,56 +1,27 @@
-<!--
-
-Simple html used to test logging in success
-
-<h1> This is the first HTML Page </h1>
-{% if needs_to_login %}
-<div>
-  <form action="/home{% url 'login'%}" method="POST">
-    <label for="userID"> UserID: </label>
-    <input id="userID" type="text" name="userID" maxlength="100">
-    <input type="submit" value="Login" id="test_button1">
-  </form>
-</div>
-{% else %}
-<div>
-  <p> Successfully logged in</p>
-</div>
-{% endif %}
-<p> {{custom_message}} </p>
--->
-
-<!-- The correct HTML for the home page -->
 {% load static-files }
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-
     <!-- <h1> This is the first HTML Page </h1> -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
-
-    <link rel="stylesheet" href="../../static/css/home.css">
+    <link rel="stylesheet" href="../static/css/base.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title></title>
   </head>
   <body>
+
+
     <div class="grid-container">
 
       <div class="photo1">
-        <img src="../../static/img/logo.png" class="photo1">
+        <img src="../static/img/logo.png" class="photo1">
       </div>
 
       <div class="main_logo">
         <p id="main_logo">Music Generation</p>
       </div>
-
-
-
       <!-- this is login button -->
-
-
-
       <div class="mainbutton">
         <form action="/home{% url 'login'%}" method="POST">
           {% csrf_token %}
@@ -64,24 +35,12 @@ Simple html used to test logging in success
         </form>
       </div>
     </div>
+    {% block content %}
 
-    <div class="hotsong">
-      <p>Hotest songs you might like: </p>
-    </div>
+    {% endblock content %}
 
-    <div class="songs">
-      <div class="song1">
-        Song 1
-      </div>
-      <div class="song2">
-        Song2
-      </div>
-      <div class="song3">
-        Song3
-      </div>
-      <div class="song4">
-        song4
-      </div>
-    </div>
+
+
+
   </body>
 </html>

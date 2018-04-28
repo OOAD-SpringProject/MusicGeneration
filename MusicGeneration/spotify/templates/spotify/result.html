@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+{{ block.super }}
+<head>
+  <meta charset="utf-8">
+  <!-- <h1> This is the first HTML Page </h1> -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="../static/css/result.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
+<div class="row">
+
+  <div class="column left">
+
+    <div class="padding_before_greeting">
+      <p></p>
+    </div>
+
+    <div class="Greeting">
+      <p>Hello, user !</p>
+    </div>
+
+    <div class="padding_after_greeting">
+      <p></p>
+    </div>
+
+    <div class="option">
+      <p>Option:</p>
+      <ul id="option_list">
+        <li>Year    <input id="checkBox_year" type="checkbox"></li>
+        <li>Genre    <input id="checkBox__genre" type="checkbox"></li>
+        <li>Singer    <input id="checkBox_Singer" type="checkbox"></li>
+      </ul>
+    </div>
+
+    <div class="playlists">
+      <p>Playlist:</p>
+      <ul id="playlist_list">
+        <li>Playlist 1    <input id="checkBox_1" type="checkbox"></li>
+      </ul>
+    </div>
+
+    <div class="submit_button">
+      <input type="submit" value="Submit">
+    </div>
+
+  </div>
+
+
+  <div class="column right">
+    <h1>Created Songs: </h1>
+    <ul>
+      <li id="song1">Song1</li>
+      <li id="song2">Song2</li>
+    </ul>
+    <div class="result_save">
+      <input type="submit" value="Save your list">
+    </div>
+  </div>
+
+
+</div>
+{% endblock content %}

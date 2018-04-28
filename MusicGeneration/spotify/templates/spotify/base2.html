@@ -1,25 +1,3 @@
-<!--
-
-Simple html used to test logging in success
-
-<h1> This is the first HTML Page </h1>
-{% if needs_to_login %}
-<div>
-  <form action="/home{% url 'login'%}" method="POST">
-    <label for="userID"> UserID: </label>
-    <input id="userID" type="text" name="userID" maxlength="100">
-    <input type="submit" value="Login" id="test_button1">
-  </form>
-</div>
-{% else %}
-<div>
-  <p> Successfully logged in</p>
-</div>
-{% endif %}
-<p> {{custom_message}} </p>
--->
-
-<!-- The correct HTML for the home page -->
 {% load static-files }
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -65,23 +43,41 @@ Simple html used to test logging in success
       </div>
     </div>
 
-    <div class="hotsong">
-      <p>Hotest songs you might like: </p>
-    </div>
 
-    <div class="songs">
-      <div class="song1">
-        Song 1
+    <div class="column">
+
+      <div class="padding_before_greeting">
+        <p></p>
       </div>
-      <div class="song2">
-        Song2
+
+      <div class="Greeting">
+        <p>Hello, user !</p>
       </div>
-      <div class="song3">
-        Song3
+
+      <div class="padding_after_greeting">
+        <p></p>
       </div>
-      <div class="song4">
-        song4
+
+      <div class="option">
+        <p>Option:</p>
+        <ul id="option_list">
+          <li>Year    <input id="checkBox_year" type="checkbox"></li>
+          <li>Genre    <input id="checkBox__genre" type="checkbox"></li>
+          <li>Singer    <input id="checkBox_Singer" type="checkbox"></li>
+        </ul>
       </div>
+
+      <div class="playlists">
+        <p>Playlist:</p>
+        <ul id="playlist_list">
+          <li>Playlist 1    <input id="checkBox_1" type="checkbox"></li>
+        </ul>
+      </div>
+
+      <div class="submit_button">
+        <input type="submit" value="Submit">
+      </div>
+
     </div>
   </body>
 </html>

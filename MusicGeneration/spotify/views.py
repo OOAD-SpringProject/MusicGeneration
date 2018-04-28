@@ -10,10 +10,34 @@ from .classes import usernameForm
 import requests
 
 
+
 # Create your views here.
 def homePage(request):
-    body_content = {'needs_to_login': True, 'custom_message': "Variable is currently true"}
-    return render(request, 'spotify/home.html', body_content)
+    #body_content = {'needs_to_login': True, 'custom_message': "Variable is currently true"}
+    #return render(request, 'spotify/home.html', body_content)
+    return render(request, 'spotify/home.html')
+
+def mainPage(request):
+    return render(request, 'spotify/main.html')
+def testPage(request):
+    return render(request, 'spotify/test.html')
+def instruction(request):
+    return render(request, 'spotify/instruction.html')
+def try1(request):
+    return render(request, 'spotify/try1.html')
+def base2(request):
+    return render(request, 'spotify/base2.html')
+def fall_login(request):
+    return render(request, 'spotify/fall_login.html')
+def succ_login(request):
+    return render(request, 'spotify/succ_login.html')
+def result(request):
+    return render(request, 'spotify/result.html')
+
+def base(request):
+    return render(request, 'spotify/base.html')
+
+
 
 # Handling Spotify authorization here
 sp_oauth = oauth2.SpotifyOAuth( cred.CLIENT_ID, cred.CLIENT_SECRET, cred.REDIRECT_URI, scope=cred.SCOPE, cache_path=cred.CACHE )

@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'lm5cmre6^&!ydu$!n+kt7f_=$z!efch9kd8w+@-shj9p=$&s*1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True 
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
@@ -123,3 +123,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    '/MusicGeneration/spotify/static/'
+    # '/var/www/static/',
+]
+
+
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static_cdn')
