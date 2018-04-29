@@ -1,8 +1,17 @@
 
 {% extends "base.html" %}
 
+
 {% block content %}
 {{ block.super }}
+<head>
+  <meta charset="utf-8">
+  <!-- <h1> This is the first HTML Page </h1> -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="../static/css/succ_login.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+</head>
 
 {% block row %}
   <div class="row">
@@ -19,7 +28,7 @@
       <div class="padding_after_greeting">
         <p></p>
       </div>
-{%endblock%}
+    {%endblock%}
       <div class="option">
         <p>Option:</p>
         <ul id="option_list">
@@ -49,13 +58,35 @@
 
     </div>
 
-    <div class="column right">
+
+    <!-- <div class="column right">
       <h2 id="text_instruction">Please select: </h2>
       <h2 id="text_instruction1">options and playlists</h2>
       <h2 id="text_instruction2">and click submit button</h2>
 
       <h2  id="text_instruction3">to get started! </h2>
+    </div> -->
+    <div class="column right">
+      <div class="column">
+          <div class="row left1">
+            <h6 id="text_succ">Please select: </h6>
+            <h6 id="text_succ1">options and playlists</h6>
+            <h6 id="text_succ2">and click submit button</h6>
+
+            <h6  id="text_succ3">to get started! </h6>
+          </div>
+
+          <hr>
+          <div class="row right1">
+            <h5 id="succ_option">option: </h5>
+            <h5 id="succ_playlist">playlist: </h5>
+          </div>
+          <div class="succ_submit">
+            <input type="submit" value="Auto Generate">
+          </div>
+      </div>
     </div>
+
   </div>
 
 
