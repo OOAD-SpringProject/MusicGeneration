@@ -28,52 +28,39 @@
       <div class="padding_after_greeting">
         <p></p>
       </div>
-    {%endblock%}
-      <div class="option">
-        <p>Option:</p>
-        <ul id="option_list">
-          <li>Year    <input id="checkBox_year" type="checkbox"></li>
-          <li>Genre    <input id="checkBox__genre" type="checkbox"></li>
-          <li>Singer    <input id="checkBox_Singer" type="checkbox"></li>
-        </ul>
-      </div>
-
-      <div class="playlists">
+{%endblock%}
+      <form action="{% url 'result'%}" method=POST>
+        <div class="option">
+          <p>Option:</p>
+          <select name="select_criteria">
+            <option value="year" name="year">Year</option>
+            <option value="genre" name="genre">Genre</option>
+            <option value="artist" name="artist">Artist</option>
+          </select>
+        </div>
+        <div class="playlists">
           {% if playlist_names %}
             <p>You have {{ playlist_names|length }} playlists!</p>
             <p>Playlist:</p>
-            <ul id="playlist_list">
-              {% for name in playlist_names %}
-                <li>{{ name }}<input id="checkBox_1" type="checkbox"></li>
+            <select name="playlist_selection">
+              {% for item in playlist_names %}
+                <option value="{{ item.name }}">{{ item.name }}</option>
               {% endfor %}
-            </ul>
+            </select>
           {% else %}
             <p> You have no playlists to display!</p>
           {% endif %}
-      </div>
-
-      <div class="submit_button">
-        <input type="submit" value="Submit">
-      </div>
-
+        </div>
+        <div class="submit_button">
+          <input type="submit" value="Submit">
+        </div>
+      </form>
     </div>
 
-
-    <!-- <div class="column right">
-      <h2 id="text_instruction">Please select: </h2>
-      <h2 id="text_instruction1">options and playlists</h2>
-      <h2 id="text_instruction2">and click submit button</h2>
-
-      <h2  id="text_instruction3">to get started! </h2>
-    </div> -->
     <div class="column right">
       <div class="column">
           <div class="row left1">
-            <h6 id="text_succ">Please select: </h6>
-            <h6 id="text_succ1">options and playlists</h6>
-            <h6 id="text_succ2">and click submit button</h6>
-
-            <h6  id="text_succ3">to get started! </h6>
+            <h6 id="text_succ">Please select an option and a playlist then press submit to auto-generate some playlists! </h6>
           </div>
 
           <hr>
@@ -81,9 +68,11 @@
             <h5 id="succ_option">option: </h5>
             <h5 id="succ_playlist">playlist: </h5>
           </div>
+          <!---
           <div class="succ_submit">
             <input type="submit" value="Auto Generate">
           </div>
+        -->
       </div>
     </div>
 
