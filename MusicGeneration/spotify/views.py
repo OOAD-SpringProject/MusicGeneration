@@ -2,6 +2,7 @@ import spotipy
 import spotipy.util as util
 from spotipy import oauth2
 import random
+import json
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import RequestContext, Template
@@ -49,23 +50,7 @@ def login(request):
             userID = form.cleaned_data['userID']
             print(userID)
             token = util.prompt_for_user_token(userID, cred.SCOPE, client_id=cred.CLIENT_ID, client_secret=cred.CLIENT_SECRET, redirect_uri=cred.REDIRECT_URI)
-            '''
-            if token:
-                sp = spotipy.Spotify(auth=token)
-                playlists = sp.user_playlists(userID)
-                for playlist in playlists['items']:
-                    print(playlist['name'])
-            return HttpResponse('/thanks/')
-    else:
-        form = usernameForm()
-    return render(request, 'spotify/home.html', {'form': form})
 
-    if request.method == 'POST':
-        #print(cred.parameters)
-        response = requests.get(cred.AUTH_URL, params=cred.parameters)
-        print (response.text)
-        return HttpResponse(response.content)
-    '''
 
 def callback(request):
     #print("Made it into the callback function")
@@ -83,7 +68,11 @@ def callback(request):
         name = results['display_name']
         user_id = results['id']
         playlists = sp.user_playlists(user_id)
-        print(playlists)
-
+        some_name = playlists['items']
+        all_playlist_names = []
+        for item in some_name:
+            all_playlist_names.append(item['name'])
+        print (all_playlist_names)
+        body_content = {'users_name': name, 'playlist_names': all_playlist_names}
         #print(sp.current_user())
-    return render(request, 'spotify/instruction.html',)
+    return render(request, 'spotify/instruction.html', body_content)

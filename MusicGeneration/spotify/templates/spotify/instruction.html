@@ -13,7 +13,7 @@
       </div>
 
       <div class="Greeting">
-        <p>Hello, user !</p>
+        <p>Hello, {{users_name}}!</p>
       </div>
 
       <div class="padding_after_greeting">
@@ -30,10 +30,17 @@
       </div>
 
       <div class="playlists">
-        <p>Playlist:</p>
-        <ul id="playlist_list">
-          <li>Playlist 1    <input id="checkBox_1" type="checkbox"></li>
-        </ul>
+          {% if playlist_names %}
+            <p>You have {{ playlist_names|length }} playlists!</p>
+            <p>Playlist:</p>
+            <ul id="playlist_list">
+              {% for name in playlist_names %}
+                <li>{{ name }}<input id="checkBox_1" type="checkbox"></li>
+              {% endfor %}
+            </ul>
+          {% else %}
+            <p> You have no playlists to display!</p>
+          {% endif %}
       </div>
 
       <div class="submit_button">
