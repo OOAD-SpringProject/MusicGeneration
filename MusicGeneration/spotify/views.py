@@ -96,6 +96,8 @@ def result(request):
         # Getting info to follow this playlist
         if release_year:
             search_result = sp_g.search(release_year, limit=1, offset=0, type='playlist')
+            external_pic = search_result['playlists']['items'][0]['images'][0]['url']
+            external_link = search_result['playlists']['items'][0]['external_urls']['spotify']
             search_items = search_result['playlists']['items'][0]
             playlist_id_to_add = search_items['id']
             owner_id_to_add = search_items['owner']['id']
