@@ -93,8 +93,14 @@ def result(request):
         for item in tracks:
             more_info = item['track']['album']
             release_year = more_info['release_date']
+        # Getting info to follow this playlist
         if release_year:
             search_result = sp_g.search(release_year, limit=1, offset=0, type='playlist')
-            print(search_result)
+            search_items = search_result['playlists']['items'][0]
+            playlist_id_to_add = search_items['id']
+            owner_id_to_add = search_items['owner']['id']
+        # Make the user follow the playlist
+        if playlist_id_to_add and owner_id_to_add:
+            sp_g.user_playlist_follow_playlist(owner_id_to_add, playlist_id_to_add)
 
     return render(request, 'spotify/result.html')
