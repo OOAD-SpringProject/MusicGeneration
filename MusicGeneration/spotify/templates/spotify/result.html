@@ -53,14 +53,32 @@
 
 {% endblock%}
   <div class="column right">
-    <h1>Created Songs: </h1>
-    <ul>
-      <li id="song1">Song1</li>
-      <li id="song2">Song2</li>
-    </ul>
-    <div class="result_save">
-      <input type="submit" value="Save your list">
+    {% if saved_option == False %}
+      <h1>Here's the music we found! </h1>
+    {% endif %}
+    <div>
+      {% if found_playlist %}
+        {% for item in found_playlist%}
+          <img src='{{ item.pic_link }}'/>
+          <a href='{{ item.pl_link }}'>Check out these songs!</a>
+        {% endfor %}
+      {% endif %}
     </div>
+    <div></div>
+    <div></div>
+    <div></div>
+    {% if saved_option == False %}
+      <div class="result_save">
+        <form action="#" method="get">
+          <input type="submit" name="save_option" value="Save to your library!">
+        </form>
+      </div>
+    {% endif %}
+    {% if saved_option %}
+      <div>
+        <p> Successfully saved to your music! </p>
+      </div>
+    {% endif %}
   </div>
 
 

@@ -72,37 +72,47 @@ def callback(request):
     return render(request, 'spotify/instruction.html', body_content)
 
 def result(request):
+    if request.GET.get('save_option'):
+        print("Button got clicked")
+        return render(request, 'spotify/result.html', {'saved_option': True})
     if request.method == 'POST':
         selection_criteria = request.POST.getlist('select_criteria')
         playlist_selection_pre = request.POST.getlist('playlist_selection')
         playlist_selection = playlist_selection_pre[0]
-    if g_access_token:
-        print("Successfully retrieved token for the result")
-        sp_g = spotipy.Spotify(g_access_token)
-        results_g = sp_g.current_user()
-        name_g = results_g['display_name']
-        user_id_g = results_g['id']
-        playlists = sp_g.user_playlists(user_id_g)
-        some_name_g = playlists['items']
-        playlist_id_g = []
-        for item in some_name_g:
-            if (item['name'] == playlist_selection):
-                playlist_id_g.append(item['id'])
-        sp_playlist = sp_g.user_playlist_tracks(user_id_g, playlist_id=playlist_id_g[0])
-        tracks = sp_playlist['items']
-        for item in tracks:
-            more_info = item['track']['album']
-            release_year = more_info['release_date']
-        # Getting info to follow this playlist
-        if release_year:
-            search_result = sp_g.search(release_year, limit=1, offset=0, type='playlist')
-            external_pic = search_result['playlists']['items'][0]['images'][0]['url']
-            external_link = search_result['playlists']['items'][0]['external_urls']['spotify']
-            search_items = search_result['playlists']['items'][0]
-            playlist_id_to_add = search_items['id']
-            owner_id_to_add = search_items['owner']['id']
-        # Make the user follow the playlist
-        if playlist_id_to_add and owner_id_to_add:
-            sp_g.user_playlist_follow_playlist(owner_id_to_add, playlist_id_to_add)
+        if g_access_token:
+            print("Successfully retrieved token for the result")
+            sp_g = spotipy.Spotify(g_access_token)
+            results_g = sp_g.current_user()
+            name_g = results_g['display_name']
+            user_id_g = results_g['id']
+            playlists = sp_g.user_playlists(user_id_g)
+            some_name_g = playlists['items']
+            playlist_id_g = []
+            for item in some_name_g:
+                if (item['name'] == playlist_selection):
+                    playlist_id_g.append(item['id'])
+            sp_playlist = sp_g.user_playlist_tracks(user_id_g, playlist_id=playlist_id_g[0])
+            tracks = sp_playlist['items']
+            for item in tracks:
+                more_info = item['track']['album']
+                release_year = more_info['release_date']
+            # Getting info to follow and display this playlist
+            if release_year:
+                search_result = sp_g.search(release_year, limit=1, offset=0, type='playlist')
+                external_pic = search_result['playlists']['items'][0]['images'][0]['url']
+                external_link = search_result['playlists']['items'][0]['external_urls']['spotify']
+                search_items = search_result['playlists']['items'][0]
+                playlist_id_to_add = search_items['id']
+                owner_id_to_add = search_items['owner']['id']
+            class BodyInfo(object):
+                def __init__(self, pic_link, pl_link):
+                    self.pic_link = pic_link
+                    self.pl_link = pl_link
+            body_info = BodyInfo(external_pic, external_link)
+            final_body = {'found_playlist': [body_info], 'saved_option': False}
 
-    return render(request, 'spotify/result.html')
+            # Make the user follow the playlist
+            if playlist_id_to_add and owner_id_to_add:
+                sp_g.user_playlist_follow_playlist(owner_id_to_add, playlist_id_to_add)
+
+            return render(request, 'spotify/result.html', final_body)
