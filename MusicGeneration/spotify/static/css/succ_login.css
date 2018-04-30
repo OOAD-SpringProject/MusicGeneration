@@ -6,7 +6,13 @@
   font-size: 4px;
 }
 
+.right{
+  width: 1550px;
+}
 
+.left{
+  width: 500px;
+}
 #text_succ{
   font-size: 30px;
 

@@ -4,3 +4,20 @@
 #song2{
   font-size: 30px;
 }
+
+.right{
+  width: 750px;
+  position: relative;
+  left: 700px;
+}
+
+
+#check_songs{
+  font-size: 40px;
+  color: black;
+}
+
+
+#item_songs{
+  position: right;
+}

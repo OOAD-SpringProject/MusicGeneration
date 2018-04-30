@@ -12,10 +12,10 @@
   <title></title>
 </head>
 
-{% block row%}
+<!-- {% block row%} -->
 <div class="row">
 
-  <div class="column left">
+  <!-- <div class="column left">
 
     <div class="padding_before_greeting">
       <p></p>
@@ -49,9 +49,9 @@
       <input type="submit" value="Submit">
     </div>
 
-  </div>
+  </div> -->
 
-{% endblock%}
+<!-- {% endblock%} -->
   <div class="column right">
     {% if saved_option == False %}
       <h1>Here's the music we found! </h1>
@@ -60,7 +60,7 @@
       {% if found_playlist %}
         {% for item in found_playlist%}
           <img src='{{ item.pic_link }}'/>
-          <a href='{{ item.pl_link }}'>Check out these songs!</a>
+          <a href='{{ item.pl_link }}' id="check_songs">Check out these songs!</a>
         {% endfor %}
       {% endif %}
     </div>
@@ -80,7 +80,6 @@
       </div>
     {% endif %}
   </div>
-
 
 </div>
 {% endblock content %}
