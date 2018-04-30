@@ -1,3 +1,7 @@
+html, body{
+  height:100%;
+}
+
 #song1{
   font-size: 30px;
 }
@@ -9,6 +13,7 @@
   width: 750px;
   position: relative;
   left: 700px;
+  height: 100%;
 }
 
 
@@ -20,4 +25,8 @@
 
 #item_songs{
   position: right;
+}
+
+#result_text{
+  font: 50px;
 }

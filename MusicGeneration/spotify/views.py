@@ -93,18 +93,25 @@ def result(request):
                 release_year = more_info['release_date']
             # Getting info to follow and display this playlist
             if release_year:
-                search_result = sp_g.search(release_year, limit=1, offset=0, type='playlist')
-                external_pic = search_result['playlists']['items'][0]['images'][0]['url']
-                external_link = search_result['playlists']['items'][0]['external_urls']['spotify']
+                search_result = sp_g.search(release_year, limit=2, offset=0, type='playlist')
+                external_link1 = search_result['playlists']['items'][0]['external_urls']['spotify']
+                external_pic1 = search_result['playlists']['items'][0]['images'][0]['url']
+                external_link2 = search_result['playlists']['items'][1]['external_urls']['spotify']
+                external_pic2 = search_result['playlists']['items'][1]['images'][0]['url']
+                #external_link3 = search_result['playlists']['items'][2]['external_urls']['spotify']
+                #external_pic3 = search_result['playlists']['items'][2]['images'][0]['url']
+                class BodyInfo(object):
+                    def __init__(self, pic_link, pl_link):
+                        self.pic_link = pic_link
+                        self.pl_link = pl_link
+                body1 = BodyInfo(external_pic1, external_link1)
+                body2 = BodyInfo(external_pic2, external_link2)
+                #body3 = BodyInfo(external_pic3, external_link3)
                 search_items = search_result['playlists']['items'][0]
                 playlist_id_to_add = search_items['id']
                 owner_id_to_add = search_items['owner']['id']
-            class BodyInfo(object):
-                def __init__(self, pic_link, pl_link):
-                    self.pic_link = pic_link
-                    self.pl_link = pl_link
-            body_info = BodyInfo(external_pic, external_link)
-            final_body = {'found_playlist': [body_info], 'saved_option': False}
+
+            final_body = {'found_playlist': [body1, body2], 'saved_option': False}
 
             # Make the user follow the playlist
             if playlist_id_to_add and owner_id_to_add:

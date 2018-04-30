@@ -61,6 +61,7 @@
         {% for item in found_playlist%}
           <img src='{{ item.pic_link }}'/>
           <a href='{{ item.pl_link }}' id="check_songs">Check out these songs!</a>
+          <input id="checkbox" type="checkbox">
         {% endfor %}
       {% endif %}
     </div>
@@ -76,7 +77,7 @@
     {% endif %}
     {% if saved_option %}
       <div>
-        <p> Successfully saved to your music! </p>
+        <font size="50">Successfully saved music to your library!</font>
       </div>
     {% endif %}
   </div>
