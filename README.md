@@ -1,2 +1,2 @@
 # MusicGeneration
-OOAD Spring 2017
+OOAD Spring 2018
