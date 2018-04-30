@@ -18,11 +18,6 @@ def homePage(request):
     #return render(request, 'spotify/home.html', body_content)
     return render(request, 'spotify/home.html')
 
-
-def instruction(request):
-    return render(request, 'spotify/instruction.html')
-
-
 # Handling Spotify authorization here
 sp_oauth = oauth2.SpotifyOAuth( cred.CLIENT_ID, cred.CLIENT_SECRET, cred.REDIRECT_URI, scope=cred.SCOPE, cache_path=cred.CACHE )
 g_access_token = "holder"

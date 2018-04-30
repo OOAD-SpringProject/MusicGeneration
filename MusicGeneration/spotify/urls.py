@@ -10,5 +10,4 @@ urlpatterns = [
     path('login/', csrf_exempt(views.login), name="login"),
     path('callback/', csrf_exempt(views.callback), name="callback"),
     path('result/', csrf_exempt(views.result), name="result"),
-    path('instruction/', views.instruction, name="instruction"),
 ]
